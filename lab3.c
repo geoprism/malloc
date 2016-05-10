@@ -9,7 +9,7 @@
 int main()
 {
 	char command[20];
-	char* mainheap = (char *)malloc(400);
+	void* mainheap = (char *)malloc(400);
 	void* begin = mainheap;   //used for blocklist(), too print in order of heap
 	void* end = mainheap;	  //used for blocklist(), too print in order of heap
 	int block_counter = 1;
@@ -130,16 +130,54 @@ int main()
 		}
 
 		else if(strcmp(command,"writeheap")==0){
+			int second;
+            scanf("%d",&second); //gets block number
+			char third;
+			scanf(" %c", &third);
+			int fourth;
+            scanf("%d",&fourth);
 
+
+			if(second == table[second-1].block_num && table[second-1].allocated == 1){
+				int i;
+				char* temp = (char *)table[second-1].starting;
+				//char val;
+				for(int i =0; i<table[second-1].size && i<fourth; i++){
+					*temp = third;
+					// val = *temp;
+					// printf("%p", temp);
+					// printf("    %c\n",val);
+
+					temp++;
+				}
+
+			}
 		}
 
 		else if(strcmp(command,"printheap")==0){
+			int second;
+            scanf("%d",&second); //gets block number
+			int third;
+            scanf("%d",&third);
 
+			if(second == table[second-1].block_num && table[second-1].allocated == 1){
+				int i;
+				char* temp = (char *)table[second-1].starting;
+				char val;
+				for(int i =0; i<table[second-1].size && i<third; i++){
+					val = *temp;
+					printf("%c",val);
+					temp++;
+				}
+				printf("\n");
+
+			}
 
 		}
 
 		else{
-			printf("INVALID COMMAND, TRY AGAIN\n");
+			if(strcmp(command,"quit")!=0)
+				printf("INVALID COMMAND, TRY AGAIN\n");
 		}
 	}
 
@@ -149,10 +187,11 @@ int main()
 	//
 	// }
 	//
+	mainheap = begin;
 	// int j;
 	// for(j = 0; j<400; j++){
-	// 	printf("%d\n", mainheap[j]);
-	// 	//mainheap++;
+	// 	printf("%p\n", mainheap);
+	// 	mainheap++;
 	// }
 
 
