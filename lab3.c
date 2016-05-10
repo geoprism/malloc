@@ -40,13 +40,13 @@ int main()
 					block.starting = table[j].starting;
 					block.size = second;
 					block.allocated = 1;
-					block.ending = table[j].starting + second;
+					block.ending = table[j].starting + second - 1;
 					table[block_counter-1] = block;
 
 
 					if(second != table[j].size){       //checks partially free space
 						table[j].size = table[j].size - second;
-						table[j].starting = table[j].starting + second + 1;
+						table[j].starting = table[j].starting + second;
 					}
 					else{
 						table[j].block_num = -1 * table[j].block_num;   //if free space is filled up remove the element.
@@ -61,11 +61,11 @@ int main()
 				block.size = second;
 				block.allocated = 1;
 				mainheap = mainheap + second;
-				block.ending = mainheap;
+				block.ending = mainheap - 1;
 				table[block_counter-1] = block;
 
 				end = mainheap;   //used for blocklist(), too print in order of heap
-				mainheap++;
+				//mainheap++;
 			}
 
 
