@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //Wong, Brian: 34216498
 //Cha, Yoon Ho: 32075491
 
@@ -14,6 +13,7 @@ int main()
 
 	while(strcmp(command,"quit")!=0){
 		printf(">");
+		scanf("%s",command);
         if(strcmp(command,"allocate")==0){
 			char second[20];
             scanf("%s",second);  //get number of bytes to allocate
@@ -21,8 +21,8 @@ int main()
         }
 
 		else if(strcmp(command,"free")==0){
-            char second[20];
-            scanf("%s",second); //gets block number
+            int second;
+            scanf("%d",&second); //gets block number
 		}
 
 		else if(strcmp(command,"blocklist")==0){
@@ -39,7 +39,8 @@ int main()
 		}
 
 		else{
-			printf("INVALID COMMAND, TRY AGAIN\n");
+			printf("INVALID COMMAND, TRY AGAIN\n>");
+			//printf(">");
 		}
 
 
