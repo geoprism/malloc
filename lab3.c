@@ -9,13 +9,13 @@
 int main()
 {
 	char command[20];
-	int* mainheap = (int *)malloc(4*400);
+	char* mainheap = (char *)malloc(400);
 
 	while(strcmp(command,"quit")!=0){
 		printf(">");
 		scanf("%s",command);
         if(strcmp(command,"allocate")==0){
-			char second;
+			int second;
             scanf("%d",&second);  //get number of bytes to allocate
 
         }
@@ -45,7 +45,6 @@ int main()
 
 
 
-	scanf("%s",command);
 	}
 
 	int k;
