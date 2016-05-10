@@ -15,8 +15,8 @@ int main()
 		printf(">");
 		scanf("%s",command);
         if(strcmp(command,"allocate")==0){
-			char second[20];
-            scanf("%s",second);  //get number of bytes to allocate
+			char second;
+            scanf("%d",&second);  //get number of bytes to allocate
 
         }
 
