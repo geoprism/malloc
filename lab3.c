@@ -142,7 +142,7 @@ int main()
 				int i;
 				char* temp = (char *)table[second-1].starting;
 				//char val;
-				for(int i =0; i<table[second-1].size && i<fourth; i++){
+				for(i =0; i<table[second-1].size && i<fourth; i++){
 					*temp = third;
 					// val = *temp;
 					// printf("%p", temp);
@@ -164,7 +164,7 @@ int main()
 				int i;
 				char* temp = (char *)table[second-1].starting;
 				char val;
-				for(int i =0; i<table[second-1].size && i<third; i++){
+				for(i =0; i<table[second-1].size && i<third; i++){
 					val = *temp;
 					printf("%c",val);
 					temp++;
