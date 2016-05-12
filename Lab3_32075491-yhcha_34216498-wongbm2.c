@@ -1,3 +1,7 @@
+//Wong, Brian: 34216498
+//Cha, Yoon Ho: 32075491
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -71,6 +75,10 @@ int main()
               int size = *(unsigned short *)cursor;
               if(*(cursor+3) == second){
                   *(cursor+2) = 0;
+                  int j;
+                  for(j=0; j<size; j++){
+                      *(cursor+4+j)='\0';
+                  }
                   break;
               }
               cursor += size +4;
@@ -92,8 +100,8 @@ int main()
                   printf("no          ");
               }
               else{ printf("yes         ");}
-              printf("%p    ", step);
-              printf("%p\n", step+4+size-1);
+              printf("%-12p    ", step);
+              printf("%-12p\n", step+4+size-1);
               step += size +4;
           }
           printf("------------------------------------------------------------------------\n");
@@ -112,6 +120,9 @@ int main()
           for(i = 0; i< block_counter-freed; i++){
               int size = *(unsigned short *)cursor;
               if(*(cursor+3) == second && *(cursor+2)==1){
+                  if(fourth>size){
+                      printf("WARNING: YOU HAVE OVERWRITTEN INTO THE NEXT BLOCK\n");
+                  }
                   int j;
                   for(j=0; j<fourth; j++){
                       *(cursor+4+j) = third;
