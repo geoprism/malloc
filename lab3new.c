@@ -5,17 +5,34 @@
 int main()
 {
   char command[20];
-  void* mainheap = (char *)malloc(400);
-  void* begin = mainheap;
-  void* end = mainheap;
+  char* mainheap = (char *)malloc(400);
+  char* begin = mainheap;
+  char* end = mainheap;
   int block_counter = 1;
 
-  short size;
-  size = 398;
+  short size = 2000;
 
-  *mainheap = size;
+  // *(unsigned short *)mainheap = size;
+  // printf("%d\n", *(unsigned short *)mainheap);
+  // printf("%d\n", *mainheap);
+  // mainheap++;
+  // printf("%d\n", *(unsigned short *)mainheap);
+  // printf("%d\n", *mainheap);
 
-  printf("%d", mainheap);
+  while(strcmp(command, "quit")!=0){
+    printf(">");
+    scanf("%s", command);
+    if(strcmp(command,"allocate")==0){
+      int second;
+      scanf("%d",&second);
+      int flag=0;
+      char* cursor = mainheap;
+      while(){
+        if(
+      }
+    }
+  }
+
 
 
   return 0;
