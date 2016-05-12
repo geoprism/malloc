@@ -34,6 +34,7 @@ int main()
       int second;
       scanf("%d",&second);
       char* cursor = front;
+      int old_block_num;
       while(1){
         unsigned short current_size = *(unsigned short *)cursor;
         cursor+=2;
@@ -43,20 +44,21 @@ int main()
           cursor +=2;
           *cursor = 1;
           cursor++;
+          old_block_num = *cursor;
           *cursor = block_counter;
+
           block_counter++;
           cursor += second + 1;
           *(unsigned short *)cursor = current_size - second - 4;
           cursor += 2;
           *cursor = 0;
           cursor ++;
-          *cursor = 0;
+          *cursor = old_block_num;
           break;
         }
         else if(*cursor == 0 && (current_size-second)<=4){
-          printf("HELLO");
           cursor -= 2;
-          *(unsigned short *)cursor = second;
+          *(unsigned short *)cursor = second + current_size-second;
           cursor +=2;
           *cursor = 1;
           cursor ++;
@@ -85,7 +87,7 @@ int main()
         cursor++;
         int this_blocknum = *cursor;
         printf("%-3d       ", this_blocknum);
-        printf("%-3d   ", this_size);
+        printf("%-3d   ", this_size + 4);
         if(this_allocated == 1)
           strcpy(yn, "yes");
         else
@@ -104,7 +106,6 @@ int main()
       int third;
             scanf("%d",&third);
       char* cursor = front;
-
 
       if(second < block_counter){
         while(1){
@@ -148,7 +149,7 @@ int main()
 
       if(second < block_counter){
         while(1){
-          if(total_size < 400){
+          if(total_size >= 400){
             printf("That block is unallocated\n");
             break;
           }
