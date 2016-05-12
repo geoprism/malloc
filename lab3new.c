@@ -10,14 +10,18 @@ int main()
   char* end = mainheap;
   int block_counter = 1;
 
-  short size = 2000;
+  short size = 398;
 
-  // *(unsigned short *)mainheap = size;
-  // printf("%d\n", *(unsigned short *)mainheap);
-  // printf("%d\n", *mainheap);
-  // mainheap++;
-  // printf("%d\n", *(unsigned short *)mainheap);
-  // printf("%d\n", *mainheap);
+
+  //SIZE - ALLOCATED - BLOCKNUM
+  *(unsigned short *)mainheap = size;
+  mainheap += 2;
+  *mainheap = 0;
+  mainheap ++;
+  *mainheap = 0;
+  mainheap ++;
+
+
 
   while(strcmp(command, "quit")!=0){
     printf(">");
@@ -27,8 +31,8 @@ int main()
       scanf("%d",&second);
       int flag=0;
       char* cursor = mainheap;
-      while(){
-        if(
+      while(1){
+        unsigned int
       }
     }
   }
